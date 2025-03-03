@@ -1,0 +1,6 @@
+peewee
+pgvector
+polars
+pyyaml
+sentence-transformers
+trulens
