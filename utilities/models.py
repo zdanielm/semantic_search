@@ -6,7 +6,7 @@ from playhouse.postgres_ext import (
     TextField,
     TSVectorField,
 )
-
+from pgvector.peewee import VectorField
 from utilities.setup import load_config
 
 database_config = load_config()
@@ -36,6 +36,7 @@ def create_tables():
         minilm_sliding.create_table()
         arctic_noverlap.create_table()
         arctic_recursive.create_table()
+        arctic_sliding.create_table()
 
 
 class BaseModel(Model):
@@ -66,6 +67,7 @@ class minilm_noverlap(BaseModel):
     id = AutoField()
     patent_number = ForeignKeyField(Patent)
     chunk_text = TextField()
+    embedding = VectorField(dimensions=384)
 
     class Meta:
         table_name = 'minilm_noverlap'
@@ -77,6 +79,7 @@ class minilm_recursive(BaseModel):
     id = AutoField()
     patent_number = ForeignKeyField(Patent)
     chunk_text = TextField()
+    embedding = VectorField(dimensions=384)
 
     class Meta:
         table_name = 'minilm_recursive'
@@ -88,6 +91,7 @@ class minilm_sliding(BaseModel):
     id = AutoField()
     patent_number = ForeignKeyField(Patent)
     chunk_text = TextField()
+    embedding = VectorField(dimensions=384)
 
     class Meta:
         table_name = 'minilm_sliding'
@@ -99,6 +103,7 @@ class arctic_noverlap(BaseModel):
     id = AutoField()
     patent_number = ForeignKeyField(Patent)
     chunk_text = TextField()
+    embedding = VectorField(dimensions=768)
 
     class Meta:
         table_name = 'arctic_noverlap'
@@ -110,6 +115,7 @@ class arctic_recursive(BaseModel):
     id = AutoField()
     patent_number = ForeignKeyField(Patent)
     chunk_text = TextField()
+    embedding = VectorField(dimensions=768)
 
     class Meta:
         table_name = 'arctic_recursive'
@@ -121,6 +127,7 @@ class arctic_sliding(BaseModel):
     id = AutoField()
     patent_number = ForeignKeyField()
     chunk_text = TextField()
+    embedding = VectorField(dimensions=768)
 
     class Meta:
         table_name = 'arctic_sliding'
