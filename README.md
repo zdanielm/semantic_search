@@ -1,4 +1,4 @@
-# Semantic Search project for "Geometric Data Analysis"
+# Semantic Search project with [pgvector](https://github.com/pgvector/pgvector-python) and [peewee](https://github.com/coleifer/peewee)
 
 ## Installation:
 ### 1. Install requirements:
