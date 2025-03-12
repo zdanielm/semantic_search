@@ -12,11 +12,11 @@ from utilities.setup import load_config
 database_config = load_config()
 
 database_driver = PostgresqlExtDatabase(
-    database_config['database'],
-    host=database_config['host'],
-    port=database_config['port'],
-    user=database_config['user'],
-    password=database_config['password']
+    database_config['db_name'],
+    host=database_config['db_host'],
+    port=database_config['db_port'],
+    user=database_config['db_user'],
+    password=database_config['db_password']
 )
 
 def create_tables():
@@ -125,7 +125,7 @@ class arctic_sliding(BaseModel):
     Text chunks, embedded with Arctic Embed M and chunked with sliding window method
     """
     id = AutoField()
-    patent_number = ForeignKeyField()
+    patent_number = ForeignKeyField(Patent)
     chunk_text = TextField()
     embedding = VectorField(dimensions=768)
 
