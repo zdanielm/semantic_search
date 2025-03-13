@@ -1,7 +1,7 @@
-model_name,elapsed_time,number_of_records
-minilm_noverlap,137.5,36849
-minilm_recursive,201.8,50475
-minilm_sliding,95.1,25009
-arctic_noverlap,341.7,36849
-arctic_recursive,511.7,50475
-arctic_sliding,330.8,25009
+model_name,elapsed_time,number_of_records,mean_context_relevance
+minilm_noverlap,137.5,36849,0.9047619047619048
+minilm_recursive,201.8,50475,1.0
+minilm_sliding,95.1,25009,1.0
+arctic_noverlap,341.7,36849,0.19047619047619047
+arctic_recursive,511.7,50475,0.19047619047619047
+arctic_sliding,330.8,25009,0.14285714285714285
